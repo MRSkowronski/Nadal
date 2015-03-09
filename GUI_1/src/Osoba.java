@@ -10,5 +10,13 @@ public class Osoba {
         this.wiek = wiek;
     }
 
+    public int zwróćWiek(){
+        return wiek;
+    }
+
+    public String zwróćImie(){
+        return imie;
+    }
+
 
 }

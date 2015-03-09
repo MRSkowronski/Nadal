@@ -28,7 +28,7 @@ public class Kurs {
         if(pozostałeMiejsca == 0)
             return 2;
 
-        if(uczestnik.wiek < limitWiekowy)
+        if(uczestnik.zwróćWiek() < limitWiekowy)
             return 3;
 
         return 4;
@@ -38,20 +38,20 @@ public class Kurs {
         if (uczestnik == null)
             throw new NullArgumentDodawaniaException();
 
-        switch(czyMożnaZapisać(uczestnik)){
+        switch(this.czyMożnaZapisać(uczestnik)){
             case 1:
-                System.out.println(uczestnik.imie + " jest już zapisany do kursu " + NazwaKursu);
+                System.out.println(uczestnik.zwróćImie() + " jest już zapisany do kursu " + this.NazwaKursu);
                 break;
             case 2:
-                System.out.println("Kurs " + NazwaKursu + ": brak miejsc!");
+                System.out.println("Kurs " + this.NazwaKursu + ": brak miejsc!");
                 break;
             case 3:
-                System.out.println(uczestnik.imie + " nie spełnia kryterium wiekowego do kursu " + NazwaKursu);
+                System.out.println(uczestnik.zwróćImie() + " nie spełnia kryterium wiekowego do kursu " + this.NazwaKursu);
                 break;
             case 4:
                 uczestnicy[ilośćUczestników] = uczestnik;
                 ilośćUczestników++;
-                System.out.println("Dodano uczestnika " + uczestnik.imie + " do kursu " + NazwaKursu);
+                System.out.println("Dodano uczestnika " + uczestnik.zwróćImie() + " do kursu " + this.NazwaKursu);
                 break;
 
 
@@ -83,7 +83,7 @@ public class Kurs {
             }
         }
         if(indexUczestnika == -1) {
-            System.out.println("Kurs " + NazwaKursu + " nie ma uczestnika " + uczestnik);
+            System.out.println("Kurs " + this.NazwaKursu + " nie ma uczestnika " + uczestnik.zwróćImie());
             return; //nie ma obiektu do skasowania
         }
         Osoba[] newArray = new Osoba[uczestnicy.length - 1];

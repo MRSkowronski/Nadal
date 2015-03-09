@@ -1,17 +1,5 @@
 public class KursTest {
 
-    public static Kurs najliczniejszy(Kurs []kursy){
-        int liczbaKursu = 0;
-        Kurs kursnajliczniejszy = kursy[0];
-        for(int i = 0; i <= kursy.length; i++){
-            if (kursy[i].ilośćUczestników > liczbaKursu){
-                liczbaKursu = kursy[i].ilośćUczestników;
-                kursnajliczniejszy = kursy[i];
-            }
-        }
-        return kursnajliczniejszy;
-    }
-
     public static void main(String[] args) {
 
         // utworzenie kursu z nazwą, dolnym limitem wiekowym (np. 3), górnym limitem uczestników (np. 4)
@@ -62,5 +50,17 @@ public class KursTest {
         // najliczniejszy(...) jest metodą statyczną klasy KursTest, zwracającą kurs z największą liczbą uczestników
         // trzeba dopisać tę metodę
         System.out.println("Kurs z największą liczbą uczestników: " + najliczniejszy(kursy).getNazwaKursu());
+    }
+
+    public static Kurs najliczniejszy(Kurs []kursy){
+        int liczbaKursu = 0;
+        Kurs kursnajliczniejszy = kursy[0];
+        for(int i = 0; i <= kursy.length; i++){
+            if (kursy[i].ilośćUczestników > liczbaKursu){
+                liczbaKursu = kursy[i].ilośćUczestników;
+                kursnajliczniejszy = kursy[i];
+            }
+        }
+        return kursnajliczniejszy;
     }
 }
